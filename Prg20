@@ -1,0 +1,15 @@
+#PROGRAM 20 Create multiple regression model using ChickWeight dataset with “Time” and 
+#“Diet” as predictors; predict weight and compute model error.
+data(ChickWeight)
+
+model <- lm(weight ~ Time + Diet, data = ChickWeight)
+
+summary(model)
+
+predicted_weight <- predict(model, ChickWeight)
+
+print(head(predicted_weight))
+
+model_error <- mean((ChickWeight$weight - predicted_weight)^2)
+
+print(model_error)
