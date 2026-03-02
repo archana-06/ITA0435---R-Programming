@@ -1,0 +1,9 @@
+
+#PROGRAM 3 Creating a 3D Array
+rows <- 3
+cols <- 4
+tables <- 2
+arr <- array(1:(rows * cols * tables),
+             dim = c(rows, cols, tables))
+print("3D Array:")
+print(arr)
