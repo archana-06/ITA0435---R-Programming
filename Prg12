@@ -1,0 +1,25 @@
+
+#PROGRAM 12 Perform data reshaping on airquality dataset: melt, cast, 
+#compute monthly averages for Ozone, Solar.R, Wind, and Temperature.
+library(reshape2)
+
+data(airquality)
+
+aq <- airquality
+aq$Month <- factor(aq$Month, levels = 5:9,
+                   labels = c("May","Jun","Jul","Aug","Sep"))
+
+aq_melt <- melt(aq,
+                id.vars = c("Month", "Day"),
+                measure.vars = c("Ozone", "Solar.R", "Wind", "Temp"),
+                variable.name = "Variable",
+                value.name = "Value")
+
+print(head(aq_melt, 10))
+
+monthly_avg <- dcast(aq_melt, Month ~ Variable,
+                     fun.aggregate = mean,
+                     na.rm = TRUE)
+
+print(monthly_avg)
+
