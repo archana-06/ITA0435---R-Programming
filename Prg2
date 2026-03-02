@@ -1,0 +1,35 @@
+
+#PROGRAM 2 Create labeled matrices (5×4, 3×3, 2×2) filled by row/column.
+# 5x4 matrix filled by column
+mat1_col <- matrix(1:20, nrow = 5, ncol = 4)
+rownames(mat1_col) <- paste("R", 1:5, sep = "")
+colnames(mat1_col) <- paste("C", 1:4, sep = "")
+mat1_col
+# 5x4 matrix filled by row
+mat1_row <- matrix(1:20, nrow = 5, ncol = 4, byrow = TRUE)
+rownames(mat1_row) <- paste("R", 1:5, sep = "")
+colnames(mat1_row) <- paste("C", 1:4, sep = "")
+mat1_row
+
+#3x3 matrix filled by column
+mat2_col <- matrix(1:9, nrow = 3, ncol = 3)
+rownames(mat2_col) <- c("Row1", "Row2", "Row3")
+colnames(mat2_col) <- c("Col1", "Col2", "Col3")
+mat2_col
+#3x3 matrix filled by row
+mat2_row <- matrix(1:9, nrow = 3, ncol = 3, byrow = TRUE)
+rownames(mat2_row) <- c("Row1", "Row2", "Row3")
+colnames(mat2_row) <- c("Col1", "Col2", "Col3")
+mat2_row
+
+#2x2 matrix filled by column
+mat3_col <- matrix(c(10, 20, 30, 40), nrow = 2, ncol = 2)
+rownames(mat3_col) <- c("R1", "R2")
+colnames(mat3_col) <- c("C1", "C2")
+mat3_col
+#2x2 matrix filled by row
+mat3_row <- matrix(c(10, 20, 30, 40), nrow = 2, ncol = 2, byrow = TRUE)
+rownames(mat3_row) <- c("R1", "R2")
+colnames(mat3_row) <- c("C1", "C2")
+mat3_row
+
