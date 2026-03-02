@@ -1,0 +1,33 @@
+
+#PROGRAM 15 Perform EDA on iris dataset: dimensions, summary, standard deviation, quantiles, 
+#grouping by Species, pivot table, categorical grouping with Sepal.Length categories.
+data(iris)
+
+print("Dimensions of dataset")
+print(dim(iris))
+
+print("Summary statistics")
+print(summary(iris))
+
+print("Standard deviation")
+print(sapply(iris[,1:4], sd))
+
+print("Quantiles")
+print(sapply(iris[,1:4], quantile))
+
+print("Grouping by Species (Mean values)")
+species_group <- aggregate(. ~ Species, data = iris, mean)
+print(species_group)
+
+print("Pivot table (Average Sepal Length by Species)")
+pivot_table <- tapply(iris$Sepal.Length, iris$Species, mean)
+print(pivot_table)
+
+iris$Sepal_Category <- cut(
+  iris$Sepal.Length,
+  breaks = c(0,5,6,8),
+  labels = c("Small","Medium","Large")
+)
+
+print("Categorical grouping by Sepal Length")
+print(table(iris$Sepal_Category, iris$Species))
