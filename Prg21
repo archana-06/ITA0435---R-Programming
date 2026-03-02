@@ -1,0 +1,28 @@
+
+#PROGRAM 21 Randomly split iris dataset into train/test (80/20), build logistic regression 
+#(Species ~ Petal.Length + Petal.Width), predict, and evaluate with confusion matrix.
+data(iris)
+
+set.seed(123)
+
+sample_index <- sample(1:nrow(iris), 0.8 * nrow(iris))
+
+train <- iris[sample_index, ]
+test <- iris[-sample_index, ]
+
+model <- glm(Species ~ Petal.Length + Petal.Width,
+             data = train,
+             family = binomial)
+
+pred_prob <- predict(model, test, type = "response")
+
+pred_class <- ifelse(pred_prob > 0.5,
+                     levels(train$Species)[2],
+                     levels(train$Species)[1])
+
+pred_class <- factor(pred_class, levels = levels(train$Species))
+
+confusion_matrix <- table(Predicted = pred_class,
+                          Actual = test$Species)
+
+print(confusion_matrix)
