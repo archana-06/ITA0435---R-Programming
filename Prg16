@@ -1,0 +1,40 @@
+
+#PROGRAM 16 Explore USArrests dataset: summary statistics, state with largest rape arrests, 
+#max & min murder rates, correlation among features, states above median assault arrests and bottom 
+#25% for murder, visualization with histogram, density, scatterplots, bar graphs.
+data(USArrests)
+
+summary(USArrests)
+
+state_max_rape <- rownames(USArrests)[which.max(USArrests$Rape)]
+print(state_max_rape)
+
+max_murder <- max(USArrests$Murder)
+min_murder <- min(USArrests$Murder)
+print(max_murder)
+print(min_murder)
+
+cor_matrix <- cor(USArrests)
+print(cor_matrix)
+
+median_assault <- median(USArrests$Assault)
+states_above_assault <- rownames(USArrests)[USArrests$Assault > median_assault]
+print(states_above_assault)
+
+q1_murder <- quantile(USArrests$Murder, 0.25)
+states_bottom_murder <- rownames(USArrests)[USArrests$Murder <= q1_murder]
+print(states_bottom_murder)
+
+hist(USArrests$Murder, main="Histogram of Murder Rate", xlab="Murder Rate")
+
+plot(density(USArrests$Assault), main="Density Plot of Assault")
+
+plot(USArrests$Murder, USArrests$Assault,
+     main="Scatterplot of Murder vs Assault",
+     xlab="Murder",
+     ylab="Assault")
+
+barplot(USArrests$Rape,
+        names.arg=rownames(USArrests),
+        main="Rape Arrests by State",
+        las=2)
