@@ -1,0 +1,39 @@
+
+
+#PROGRAM 18 Create graphs in R: boxplot, histogram, bar plot, line chart, scatter plot.
+data <- c(12, 15, 18, 20, 22, 25, 30, 28, 24, 19)
+
+boxplot(data,
+        main = "Boxplot",
+        col = "lightblue")
+
+hist(data,
+     main = "Histogram",
+     xlab = "Values",
+     col = "lightgreen")
+
+categories <- c("A", "B", "C", "D")
+values <- c(10, 15, 7, 12)
+
+barplot(values,
+        names.arg = categories,
+        main = "Bar Plot",
+        col = "orange")
+
+x <- 1:10
+y <- c(5,7,9,8,10,12,11,13,14,15)
+
+plot(x, y,
+     type = "l",
+     main = "Line Chart",
+     xlab = "X values",
+     ylab = "Y values",
+     col = "blue")
+
+plot(x, y,
+     main = "Scatter Plot",
+     xlab = "X values",
+     ylab = "Y values",
+     col = "red",
+     pch = 19)
+
