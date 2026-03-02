@@ -1,0 +1,49 @@
+
+#PROGRAM 10 Create and explore a data frame exam_data with name, score, attempts, 
+#and qualify fields. Perform extract, add row/column, sort, save to file.
+# Create data frame
+exam_data <- data.frame(
+  name = c("Arun", "Priya", "Rahul", "Sneha", "Kiran"),
+  score = c(85, 90, 78, 88, 76),
+  attempts = c(1, 2, 1, 3, 2),
+  qualify = c("Yes", "Yes", "Yes", "Yes", "No")
+)
+
+print("Original Data Frame")
+print(exam_data)
+
+# Extract specific column
+print("Extract score column")
+print(exam_data$score)
+
+# Extract rows
+print("First two rows")
+print(exam_data[1:2, ])
+
+# Add new row
+new_row <- data.frame(name="Ravi", score=82, attempts=1, qualify="Yes")
+exam_data <- rbind(exam_data, new_row)
+
+print("After Adding Row")
+print(exam_data)
+
+# Add new column
+exam_data$grade <- c("A", "A", "B", "A", "C", "B")
+
+print("After Adding Column")
+print(exam_data)
+
+# Sort by score
+sorted_data <- exam_data[order(exam_data$score), ]
+
+print("Sorted Data by Score")
+print(sorted_data)
+
+# Save to file
+write.csv(exam_data, "exam_data.csv", row.names = FALSE)
+
+print("Data saved to exam_data.csv")
+
+
+
+
