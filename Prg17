@@ -1,0 +1,44 @@
+
+#PROGRAM 17 Explore Titanic dataset: bar chart of survival vs class, modify plot by 
+#gender, histogram of Age.
+data(Titanic)
+
+titanic_df <- as.data.frame(Titanic)
+
+survival_class <- table(titanic_df$Survived, titanic_df$Class)
+
+barplot(survival_class,
+        beside = TRUE,
+        col = c("red", "green"),
+        main = "Survival vs Class",
+        xlab = "Class",
+        ylab = "Count",
+        legend = rownames(survival_class))
+
+survival_class_gender <- xtabs(Freq ~ Survived + Class + Sex, data = titanic_df)
+
+barplot(survival_class_gender[,, "Male"],
+        beside = TRUE,
+        col = c("red", "green"),
+        main = "Male Survival vs Class",
+        xlab = "Class",
+        ylab = "Count",
+        legend = rownames(survival_class_gender))
+
+barplot(survival_class_gender[,, "Female"],
+        beside = TRUE,
+        col = c("red", "green"),
+        main = "Female Survival vs Class",
+        xlab = "Class",
+        ylab = "Count",
+        legend = rownames(survival_class_gender))
+
+data(titanic_train)
+
+hist(titanic_train$Age,
+     main = "Histogram of Age",
+     xlab = "Age",
+     col = "lightblue")
+
+
+
