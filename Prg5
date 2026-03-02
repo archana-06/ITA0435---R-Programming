@@ -1,0 +1,34 @@
+
+#PROGRAM 5 Create and manipulate factor variables 
+# ----- WOMEN DATASET FACTOR CREATION -----
+data(women)
+height_category <- ifelse(women$height < 60, "Short",
+                          ifelse(women$height <= 65, "Medium", "Tall"))
+height_factor <- factor(height_category,
+                        levels = c("Short", "Medium", "Tall"),
+                        ordered = TRUE)
+cat("Height Factor:\n")
+print(height_factor)
+cat("\nLevels of Height Factor:\n")
+print(levels(height_factor))
+cat("\nFrequency of Height Categories:\n")
+print(table(height_factor))
+
+
+# ----- RANDOM LETTERS FACTOR CREATION -----
+set.seed(123)
+letter_sample <- sample(LETTERS[1:5], 20, replace = TRUE)
+letter_factor <- factor(letter_sample)
+cat("\nRandom Letter Sample:\n")
+print(letter_sample)
+cat("\nLetter Factor:\n")
+print(letter_factor)
+cat("\nLevels of Letter Factor:\n")
+print(levels(letter_factor))
+cat("\nFrequency of Letters:\n")
+print(table(letter_factor))
+levels(letter_factor) <- c("Apple", "Ball", "Cat", "Dog", "Egg")
+cat("\nRenamed Letter Factor:\n")
+print(letter_factor)
+
+
