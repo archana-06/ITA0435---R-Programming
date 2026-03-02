@@ -1,0 +1,34 @@
+
+#PROGRAM 6 Create an R list containing vectors, matrices, and functions; display contents.
+# Numeric vector
+num_vector <- c(10, 20, 30, 40, 50)
+
+# Matrix (2x3)
+mat <- matrix(1:6, nrow = 2, ncol = 3)
+colnames(mat) <- c("C1", "C2", "C3")
+rownames(mat) <- c("R1", "R2")
+
+# Function
+square_function <- function(x) {
+  return(x^2)
+}
+
+
+my_list <- list(
+  Vector = num_vector,
+  Matrix = mat,
+  Function = square_function
+)
+
+
+cat("Full List:\n")
+print(my_list)
+
+cat("\nAccess Vector:\n")
+print(my_list$Vector)
+
+cat("\nAccess Matrix:\n")
+print(my_list$Matrix)
+
+cat("\nCall Function (square of 5):\n")
+print(my_list$Function(5))
