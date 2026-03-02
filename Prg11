@@ -1,0 +1,5 @@
+
+#PROGRAM 11 Write an R program to read a .csv file and display contents.
+data <- read.csv("data.csv")
+
+print(data)
