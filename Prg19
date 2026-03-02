@@ -1,0 +1,16 @@
+
+#PROGRAM 19 Build a regression model on advertising dataset (Sales ~ Spend) and predict Sales.
+advertising <- data.frame(
+  Spend = c(10, 15, 20, 25, 30, 35, 40),
+  Sales = c(50, 55, 65, 70, 75, 85, 90)
+)
+
+model <- lm(Sales ~ Spend, data = advertising)
+
+summary(model)
+
+new_data <- data.frame(Spend = c(22, 28, 45))
+
+predicted_sales <- predict(model, new_data)
+
+print(predicted_sales)
