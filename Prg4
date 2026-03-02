@@ -1,0 +1,11 @@
+
+#PROGRAM 4 vectors with dimension names
+vec <- 1:12
+arr <- array(vec,
+             dim = c(2, 3, 2),
+             dimnames = list(
+               Row = c("R1", "R2"),
+               Column = c("C1", "C2", "C3"),
+               Table = c("T1", "T2")
+             ))
+print(arr)
