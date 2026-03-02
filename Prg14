@@ -1,0 +1,26 @@
+
+#PROGRAM 14 Explore and manipulate ChickWeight dataset (sorting, melting, casting by Diet).
+data(ChickWeight)
+
+cw <- ChickWeight
+
+sorted_by_weight <- cw[order(cw$weight), ]
+print(head(sorted_by_weight, 10))
+
+sorted_by_time_weight <- cw[order(cw$Time, cw$weight), ]
+print(head(sorted_by_time_weight, 10))
+
+library(reshape2)
+
+cw_melt <- melt(cw,
+                id.vars = c("Chick", "Time", "Diet"),
+                measure.vars = "weight",
+                variable.name = "Measure",
+                value.name = "Value")
+
+print(head(cw_melt, 10))
+
+diet_avg <- dcast(cw_melt, Diet ~ Time, fun.aggregate = mean, na.rm = TRUE)
+print(diet_avg)
+
+
