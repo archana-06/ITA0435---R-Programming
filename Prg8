@@ -1,0 +1,10 @@
+#PROGRAM 8 Generate random numbers from a normal distribution; count occurrences.
+set.seed(123)
+
+numbers <- rnorm(20, mean = 0, sd = 1)
+
+print(numbers)
+
+counts <- table(round(numbers))
+
+print(counts)
